@@ -60,7 +60,7 @@ guess_encoding("https://www.homemate-research-convenience-store.com/13103/")
 
 shop_names <- c()
 addresses <- c()
-review_count <- c()
+review_counts <- c()
 
 for(i in 1:13){
   url_tmp <- paste0("https://www.homemate-research-convenience-store.com/13103/", i, "/") %>% # iページ目のURLを作成
@@ -79,7 +79,7 @@ for(i in 1:13){
     html_nodes(xpath = '//*[@class="p7"]') %>%   # データの位置を指定 
     html_text()                                                 # 文字列の形式で出力
   # str_replace_all(pattern = "\n", replacement = "")               # 文字を整える
-  review_counts <- c(review_count,review_count_tmp)                                # (i-1)ページ目までのデータと結合
+  review_counts <- c(review_counts,review_count_tmp)                                # (i-1)ページ目までのデータと結合
   Sys.sleep(1)                                                      # 1秒時間を空ける
 }
 
